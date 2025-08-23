@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>KhaataBook</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+            @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400..900&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:wght@100&family=Smooch+Sans:wght@362&display=swap');
+
+
+            .Font {
+  font-family: "Bebas Neue", serif;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.Bodyfont {
+    font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 75;
+  color:#ffffff
+}
+
+a { color: black;}
+
+
+            </style>
+
+    </head>
+    <body>
+        <div
+            style=" background-color: #ffffff; padding: 2px 20px;">
+
+            <div
+                style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; ">
+
+                <h1 class="Font"> Khaatabook </h1>
+                <span style="display: flex; gap: 20px;">
+                    <h3> <a class="Font" href="/"> Home </a> </h3>
+                    <h3> <a class="Font" href="/create"> Create New Hisaab </a>
+                    </h3>
+                </span>
+            </div>
+
+            <h2 class="Font "> All Hisaab Khitaab</h2>
+
+            <% if(files.length > 0){ %>
+
+            <% files.forEach(function(file){ %>
+
+            <div class="Bodyfont"
+                style="background-color: rgb(90, 181, 246); width:fit-content; height: 40px; border-radius: 10px;  display: flex; gap: 20px; justify-content: space-between; align-items: center; margin: 10px 0px; padding: 0px 15px; box-shadow: 1px 1px 5px #888888;">
+
+                <div>
+
+                    <a
+                        style="text-decoration: none; display: flex; gap: 20px; align-items: center;"
+                        href="/show/<%= file %>">
+
+                        <h4 class style="font-weight: normal;"> <%=
+                            file.split(".")[0] %>
+                        </h4>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                            viewBox="0 -960 960 960" width="24px"
+                            style="background-color: white; border-radius: 100%; padding: 2px;"
+                            fill="undefined"><path
+                                d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" /></svg>
+
+                    </a>
+                </div>
+
+                <span style="display: flex; gap: 10px; align-items: center;">
+
+                    <a style="text-decoration: none; align-items: center;"
+                        href="/editexit/<%= file %>">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                            viewBox="0 -960 960 960" width="24px"
+                            style="background-color: white; border-radius: 100%; padding: 2px;"
+                            fill="undefined"><path
+                                d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" /></svg>
+
+                    </a>
+                    <!-- <a style="text-decoration: none; "
+                            href="/delete/<%= file %>"> -->
+
+                    <a href="#" style="text-decoration: none;"
+                        onclick="confirmDelete('<%= file %>')">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                            viewBox="0 -960 960 960" width="24px"
+                            style="background-color: white; border-radius: 100%; padding: 2px;"
+                            fill="undefined"><path
+                                d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" /></svg>
+
+                    </a>
+                </span>
+
+            </div>
+
+            <% }) %>
+            <% } else { %>
+            <h2 class="Bodyfont" style="color:black; font-size: medium;">Currently nothing to show, create new hisaabs to see something</h2>
+            <% } %>
+
+        </div>
+
+        <script>
+            function confirmDelete(filename) {
+                if (confirm(`Are you sure you want to delete ${filename.split('.')[0]}?`)) {
+                    window.location.href = `/delete/${filename}`;
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Login Krlo</title>
+</head>
+<body>
+    <div class="w-screen h-screen bg-purple-700/90 text-white p-14">
+
+        <div class=" h-[100%] border rounded-2xl backdrop-blur-md bg-white/20 shadow-md">
+            <h1 class="text-center text-2xl font-bold mt-5">Log into your Account </h1>
+
+            <form method="post" action="/login" class="flex flex-col gap-4 p-10">
+
+                <!-- <input type="text" name="username" placeholder="Username" class="p-2  border  rounded-md"> -->
+
+                <input type="email" name="email" placeholder="Email" class="p-2 border  rounded-md">
+
+                <input type="password" name="password" placeholder="Password" class="p-2 border  rounded-md">
+
+                <button type="submit" value="login" class="p-2 bg-purple-700 rounded-md">Submit</button>
+
+            </form>
+
+        </div>
+
+    </div>
+    
+</body>
+</html>
