@@ -3,8 +3,6 @@ const Joi = require('joi')
 
 mongoose.connect("mongodb://127.0.0.1:27017/joitetdb")
 
-// "mongodb+srv://suyash:suyashmishra29@cluster1.z1sug.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1"
-
 
 // ----------------------------------------------------------------
 // ------------------------- Khud se Likha yh wala schema -------------
