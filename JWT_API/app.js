@@ -3,9 +3,10 @@ const app = express();
 
 require('dotenv').config();
 
-app.get('/', (req, res) => (
-    console.log('Server is running')
-))
+app.get('/', (req, res) => {
+    console.log('Server is running');
+    res.send('Server is running');
+});
 
 const connectDB = require('./config/mongoose-connection');
 const cookieParser = require('cookie-parser');
@@ -19,7 +20,9 @@ app.use(cookieParser());
 
 connectDB();  // Connected to DB  
 
+
 app.use('/api/auth', authRoutes )
+
 
 
 app.listen(3000, ()=>{

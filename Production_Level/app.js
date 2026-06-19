@@ -18,7 +18,9 @@ const isLoggedin = require('./middlewares/isLoggedin');
 const db = require('./config/mongoose-connection');
 
 
+
 app.use("/", indexRouter);
+
 app.use("/user", isLoggedin, userRouter)
 
 app.listen(port, ()=>{

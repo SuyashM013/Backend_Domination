@@ -21,7 +21,7 @@ function App() {
         <Route path="/" element={<Card />} />
         <Route path="/particles" element={<Particles />} />
         <Route path = "/liquid" element = {<Liquid />} />
-        <Route path = "/anti" element = {<Anti />} />
+        {/* <Route path = "/" element = {<Anti />} /> */}
       </Routes>
     </Router>
 
